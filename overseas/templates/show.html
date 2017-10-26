@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Overseas for You</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main stylesheet -->
+    <link href="static/css/hallooou.css" rel="stylesheet">
+
+    <!-- Color stylesheet -->
+    <!-- <link href="static/css/colors.css" rel="stylesheet">
+    <link href="static/css/colors_2.css" rel="stylesheet">
+    <link href="static/css/colors_3.css" rel="stylesheet">
+    <link href="static/css/colors_4.css" rel="stylesheet"> -->
+
+
+    <!-- Plugin stylesheets -->
+    <link href="static/css/plugins/owl.carousel.css" rel="stylesheet">
+    <link href="static/css/plugins/owl.theme.css" rel="stylesheet">
+    <link href="static/css/plugins/owl.transitions.css" rel="stylesheet">
+    <link href="static/css/plugins/animate.css" rel="stylesheet">
+    <link href="static/css/plugins/magnific-popup.css" rel="stylesheet">
+    <link href="static/css/plugins/jquery.mb.YTPlayer.min.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+<!--     <link href='http://fonts.googleapis.com/css?family=Raleway:100,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script>
+        document.createElement('video');
+      </script>
+    <![endif]-->
+
+</head>
+
+<body id="home">
+
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header pull-left">
+                        <a class="navbar-brand page-scroll" href="#page-top">
+                            <!-- replace with your brand logo/text -->
+                            <span class="brand-logo"><img src="static/images/logo.svg" onerror="this.src='static/images/logo.png'; this.onerror=null;" alt="Hallooou - HTML5 Template" title="留学指南" class="img-responsive"></span>
+                        </a>
+                    </div>
+
+                    <div class="main-nav pull-right">
+                        <div class="button_container toggle">
+                            <span class="top"></span>
+                            <span class="middle"></span>
+                            <span class="bottom"></span>
+                        </div>
+                    </div>
+                    <div class="overlay" id="overlay">
+                        <nav class="overlay-menu">
+                            <ul>
+                                <li><a href="home">主页</a></li>
+                                <li><a href="predict">录取预测</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div><!-- /.container -->
+            </nav>
+
+
+        <section id="contact" class="contact content-section no-bottom-pad">
+            <div class="container">
+                    <div class="row form-container">
+
+                        <!-- <div class="col-md-7 contact-form"> -->
+                            
+                            <form class="ajax-form" id="SearchForm" method="post" >
+                                
+                                <div class="row" align="center" >
+<!--                                 <h4>搜索</h4> -->
+                                    <input type="text" style=" width:250px; float:left" class="form-control" list='AppliedSchool' name="AppliedSchool" placeholder="申请学校" id='hp_AppliedSchool'>
+                                    <datalist id ='AppliedSchool'>
+                                    {% for list in applyschool_list %}
+                                    <option value='{{list}}'>
+                                    {%endfor%}
+                                    </datalist>
+                                    <input type="text" style="margin-right: 650px; width:250px; " class="form-control" list='Major' name="Major" placeholder="申请专业"  >
+                                    <datalist id ='Major'>
+                                    {% for list in major_list %}
+                                    <option value='{{list}}'>
+                                    {%endfor%}
+                                    </datalist>
+                                    <button type="submit" name="submit" style="margin-top: -56px; height:35px;text-align:center;line-height:20px;  " class="btn btn-default"><i class="fa fa-paper-plane fa-fw" ></i>确定</button>
+
+
+
+                                </div>
+
+
+<!--                                 <div class="form-group" align="center" style="margin-bottom:100px;">
+                                    <button type="submit" name="submit" class="btn btn-default"><i class="fa fa-paper-plane fa-fw"></i>确定</button>
+                                </div> -->
+
+
+
+
+
+
+                            </form>
+                        <!-- </div> --><!-- /.contact-form -->
+
+<!--                         <div class="col-md-4 contact-address">
+                            <h3>Our address</h3>
+                            <p>76 Ninth Ave,
+                                <br />New York, NY 10011,
+                                <br /> United States</p>
+                            <ul>
+                                <li><span>Email:</span>hello@hallooou.com</li>
+                                <li><span>Phone:</span>+88 (0) 101 0000 000</li>
+                                <li><span>Fax:</span>+88 (0) 202 0000 001</li>
+                            </ul>
+                        </div><!-- /.contact-address -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+                </section>
+                            <!-- Our team Section -->
+
+                <div class="container" style="margin-top: 50px;">
+                    <div class="row text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div id="GPA_Viewer" style='min-width:300px;height:300px' class="col-md-4">
+                                </div><!-- /.col-md-4 -->
+                                <div id="IELTS_Viewer" style='min-width:300px;height:300px' class="col-md-4">
+                                </div><!-- /.col-md-4 -->
+                                <div id="TOEFL_Viewer" style='min-width:300px;height:300px' class="col-md-4">
+                                </div><!-- /.col-md-4 -->
+                                <div id="GRE_Viewer" style='min-width:300px;height:300px' class="col-md-4">
+                                </div><!-- /.col-md-4 -->
+                                <div id="SchoolMajor_Viewer" style='min-width:300px;height:300px' class="col-md-4">
+                                </div><!-- /.col-md-4 -->
+                                <div id="School_Viewer" style='min-width:300px;height:300px' class="col-md-4">
+                                </div><!-- /.col-md-4 -->
+                                <div id="AppliedSchool_Viewer" style='min-width:300px;height:300px' class="col-md-4">
+                                </div><!-- /.col-md-4 -->
+                                <div id="Major_Viewer" style='min-width:300px;height:300px' class="col-md-4">
+                                </div><!-- /.col-md-4 -->
+
+
+
+
+
+
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+
+
+
+
+
+
+
+
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="static/js/plugins/wow.min.js"></script>
+    <script src="static/js/plugins/owl.carousel.min.js"></script>
+    <script src="static/js/plugins/jquery.parallax-1.1.3.js"></script>
+    <script src="static/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="static/js/plugins/jquery.mb.YTPlayer.min.js"></script>
+    <script src="static/js/plugins/jquery.countTo.js"></script>
+    <script src="static/js/plugins/jquery.inview.min.js"></script>
+    <script src="static/js/plugins/pace.min.js"></script>
+    <script src="static/js/plugins/jquery.easing.min.js"></script>
+    <script src="static/js/plugins/jquery.validate.min.js"></script>
+    <script src="static/js/plugins/additional-methods.min.js"></script> 
+<!--     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoVKfEihX__NdMwdDysA6Vve6PE9Ierj4"></script> -->
+
+    <!-- Custom JavaScript -->
+    <script src="static/js/hallooou.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/highcharts.js"></script>
+    <script src="static/js/exporting.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    
+
+    <script>
+    $(document).ready(function(){
+        $('#SearchForm').submit(function(){
+            var AppliedSchool=$('#id_AppliedSchool').val();
+            var Major=$('#id_Major').val();
+
+            $.ajax({
+                type:'POST',
+                data:{AppliedSchool:AppliedSchool,Major:Major},
+                url:"/show/",
+                dataType:'html',
+                success:function(result,statues,xml){
+                    alert(result);
+                }
+                error:function(){
+                    alert('false');
+                }
+
+
+            });
+            return false;
+        });
+
+    });
+    </script>
+
+    <script type='text/javascript'>
+    loadXML = function(xmlFile){
+        var xmlDoc=null;
+        //判断浏览器的类型
+        //支持IE浏览器
+        if(!window.DOMParser && window.ActiveXObject){
+            var xmlDomVersions = ['MSXML.2.DOMDocument.6.0','MSXML.2.DOMDocument.3.0','Microsoft.XMLDOM'];
+            for(var i=0;i<xmlDomVersions.length;i++){
+                try{
+                    xmlDoc = new ActiveXObject(xmlDomVersions[i]);
+                    break;
+                }catch(e){
+                }
+            }
+        }
+        //支持Mozilla浏览器
+        else if(document.implementation && document.implementation.createDocument){
+            try{
+                /* document.implementation.createDocument('','',null); 方法的三个参数说明
+                 * 第一个参数是包含文档所使用的命名空间URI的字符串； 
+                 * 第二个参数是包含文档根元素名称的字符串； 
+                 * 第三个参数是要创建的文档类型（也称为doctype）
+                 */
+                xmlDoc = document.implementation.createDocument('','',null);
+            }catch(e){
+            }
+        }
+        else{
+            return null;
+        }
+
+        if(xmlDoc!=null){
+            xmlDoc.async = false;
+            xmlDoc.load(xmlFile);
+        }
+        return xmlDoc;
+    }
+    </script>
+
+
+    <script>
+    $(document).ready(function(){
+
+
+        var xmldoc=loadXML('static/xml/new_result_missing.xml');
+        var records = xmldoc.getElementsByTagName("RECORD");
+
+        $('#hp_AppliedSchool').on('input', function(){
+            //var AppliedSchool1=$('#id_AppliedSchool').val();
+            $("#Major").empty();
+            var AppliedSchool1=this.value;
+            var major_list=document.getElementById('Major');
+            var majors=new Array()
+
+            for (var i=0;i<records.length;i++){
+                if (records[i].getElementsByTagName("AppliedSchool")[0].firstChild.nodeValue==AppliedSchool1)
+                {
+                    var major=records[i].getElementsByTagName('Major')[0].firstChild.nodeValue;
+/*                  console.log(records[i].getElementsByTagName("AppliedSchool")[0].firstChild.nodeValue)
+                    console.log(records[i].getElementsByTagName('Major')[0].firstChild.nodeValue)*/
+                    if ($.inArray(major,majors)==-1)
+                    {
+                        majors.push(major);
+                    }
+                    
+                    
+
+                }
+
+            }
+            majors.forEach(function(item){
+                var option=document.createElement('option');
+                option.value=item;
+                major_list.appendChild(option);
+            })
+
+        
+
+
+
+    });
+
+    });
+    </script>
+    <script>
+    var GPA_list={{GPA_list|safe}};
+    var GPA_list_count={{GPA_list_count|safe}};
+    var IELTS_list={{IELTS_list|safe}};
+    var IELTS_list_count={{IELTS_list_count|safe}};
+    var TOEFL_list={{TOEFL_list|safe}};
+    var TOEFL_list_count={{TOEFL_list_count|safe}};
+    var GRE_list={{GRE_list|safe}};
+    var GRE_list_count={{GRE_list_count|safe}};
+    var SchoolMajor_list={{SchoolMajor_list|safe}};
+    var SchoolMajor_list_count={{SchoolMajor_list_count|safe}};
+    var School_list={{School_list|safe}};
+    var School_list_count={{School_list_count|safe}};
+    var AppliedSchool_list={{AppliedSchool_list|safe}};
+    var AppliedSchool_list_count={{AppliedSchool_list_count|safe}};
+    var Major_list={{Major_list|safe}};
+    var Major_list_count={{Major_list_count|safe}};
+
+
+
+
+    $(function(){
+        $('#GPA_Viewer').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'GPA'
+        },
+        subtitle: {
+            text: '申请者GPA分布'
+        },
+        xAxis: {
+            categories: GPA_list,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '数量'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '分段',
+            data: GPA_list_count
+        }]
+        });
+
+
+        $('#IELTS_Viewer').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'IELTS'
+        },
+        subtitle: {
+            text: '申请者IELTS分布'
+        },
+        xAxis: {
+            categories: IELTS_list,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '数量'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '分段',
+            data: IELTS_list_count
+        }]
+        });
+
+
+        $('#TOEFL_Viewer').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'TOEFL'
+        },
+        subtitle: {
+            text: '申请者TOEFL分布'
+        },
+        xAxis: {
+            categories: TOEFL_list,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '数量'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '分段',
+            data: TOEFL_list_count
+        }]
+        });
+
+        $('#GRE_Viewer').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'GRE'
+        },
+        subtitle: {
+            text: '申请者GRE分布'
+        },
+        xAxis: {
+            categories: GRE_list,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '数量'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '分段',
+            data: GRE_list_count
+        }]
+        });
+
+        $('#SchoolMajor_Viewer').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '本科专业情况'
+        },
+        subtitle: {
+            text: '申请者本科专业分布'
+        },
+        xAxis: {
+            categories: SchoolMajor_list,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '数量'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '专业',
+            data: SchoolMajor_list_count
+        }]
+        });
+
+        $('#School_Viewer').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '本科学校情况'
+        },
+        subtitle: {
+            text: '申请者本科学校分布'
+        },
+        xAxis: {
+            categories: School_list,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '数量'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '学校',
+            data: School_list_count
+        }]
+        });
+
+        $('#AppliedSchool_Viewer').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '申请学校'
+        },
+        subtitle: {
+            text: '申请学校分布'
+        },
+        xAxis: {
+            categories: AppliedSchool_list,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '数量'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '学校',
+            data: AppliedSchool_list_count
+        }]
+        });
+
+        $('#Major_Viewer').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '申请专业'
+        },
+        subtitle: {
+            text: '申请专业分布'
+        },
+        xAxis: {
+            categories: Major_list,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '数量'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '申请专业',
+            data: Major_list_count
+        }]
+    });
+        
+
+
+    });
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
